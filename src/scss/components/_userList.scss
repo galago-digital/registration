@@ -1,0 +1,77 @@
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.tableWrapper{
+  padding: 30px;
+}
+table {
+  margin-top: 15px;
+  color: black;
+  background-color: white;
+  border-width: 0 1px 1px 1px;
+  border-collapse: separate;
+  border-spacing: 0;
+  display: table;
+  overflow: auto;
+  width: 100%;
+  height: 350px;
+  thead{
+    width: 100%;
+    th {
+      position: -webkit-sticky; /* for Safari */
+      position: sticky;
+      top: 0;
+      color: black;
+      background-color: #ddd;
+      font-weight: bold;
+      font-size: 0.8em;
+      padding: 5px 10px;
+      height: 35px;
+      vertical-align: bottom;
+    }
+  }
+  tbody td {
+    border-top: 1px solid gray;
+    text-align: center;
+    padding: 5px 10px;
+    vertical-align: top;
+
+  }
+  tr:nth-child(2n) {
+    background-color: #f1f1f1;
+  }
+}
+.overflow {
+  width: 100%;
+  overflow: auto;
+  height: 350px;
+}
+.inputBlock {
+  input[type=search] {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    background: #f1f1f1;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: auto;
+
+    &:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+  }
+  label{
+    margin-left: 40px;
+  }
+}

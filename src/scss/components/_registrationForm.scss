@@ -1,0 +1,65 @@
+.registrationFrom {
+  padding: 30px;
+
+  .inputForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .inputBlock {
+
+      input[type=text], input[type=password], input[type=tel], input[type=date], select {
+        width: 98%;
+        padding: 10px;
+        //margin: 5px 0 22px 50px;
+        border: none;
+        background: #f1f1f1;
+        display: block;
+        margin-left: 0px;
+        margin-right: auto;
+
+        &:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+      }
+    }
+
+  }
+
+
+  .buttonBlock {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+
+    .sendButton {
+      margin-top: 15px;
+      box-shadow: inset 0px -18px 6px -6px #7b9dc7;
+      background: linear-gradient(to bottom, #527dc7 5%, #394d9e 100%);
+      background-color: #527dc7;
+      border-radius: 3px;
+      border: 2px solid #8b92ba;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 15px;
+      padding: 10px 27px;
+      text-decoration: none;
+
+      &:hover {
+        background: linear-gradient(to bottom, #394d9e 5%, #527dc7 100%);
+        background-color: #394d9e;
+      }
+
+      &:active {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+.error{
+  color: red;
+}
+

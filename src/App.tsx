@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Registration from "./Components/Registration";
+import UserList from "./Components/UserList";
+import {Route} from "react-router-dom";
+import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {setUsers} from "./redux/actions/users";
+import {initialUsersStateType} from "./redux/reducers/users";
+
 
 function App() {
+    //заполняем state
+    const dispatch = useDispatch()
+    const state = useSelector(({users}:{users: initialUsersStateType})=> {
+        return{
+            users: users.users
+        }
+    })
+    React.useEffect(() => {
+        axios.get('http://localhost:3000/users.json') // указать порт, на котором запущено приложение
+            .then(({data}) => {
+                dispatch(setUsers(data.users))
+            })
+    }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='wrapper'>
+        <div className='content'>
+          <Route render={()=> <Registration items = {state.users} />} />
+          <Route exact path='/' render={() => <UserList items={state.users}/>}/>
+        </div>
     </div>
   );
 }
