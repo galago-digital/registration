@@ -6,7 +6,8 @@
     grid-template-columns: 1fr 1fr;
 
     .inputBlock {
-
+      // input[type=text] - селекторы такого вида медленне чем по классу, или по имени элемента
+      // добавили класс можно было бы сократить эту запись + убрать не нужное наследование от .inputBlock
       input[type=text], input[type=password], input[type=tel], input[type=date], select {
         width: 98%;
         padding: 10px;
@@ -14,6 +15,7 @@
         border: none;
         background: #f1f1f1;
         display: block;
+        // в данном случае margin ни на что не влияют
         margin-left: 0px;
         margin-right: auto;
 
@@ -28,6 +30,7 @@
   }
 
 
+  // вполне можно было поместить в grid
   .buttonBlock {
     display: flex;
     justify-content: flex-end;

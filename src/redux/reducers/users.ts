@@ -2,7 +2,7 @@ import {usersActionType} from "../actions/users";
 
 const initialState = {
     users: [],
-    isLoaded: false
+    isLoaded: false // нигде не используется, хотя идея показать состояние загрузки данных правильная
 }
 export type initialUsersStateType = typeof initialState
 

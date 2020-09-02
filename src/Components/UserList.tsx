@@ -14,10 +14,16 @@ const UserList = ({items}: { items: Array<UserType> }) => {
             'name'
         ]
     })
+    
     const results = fuse.search(query)
     const userSearchResults = query ? results.map(result => result.item) : items
+
     const handleOnSearch = ({currentTarget = {}}) => {
-        // впервые полюзуюсь fuse, не смог подобрать type у value
+        // впервые полюзуюсь fuse, не смог подобрать type у value   
+            
+        // ИМХО fuse тут избыточен, а результат его работы не однозначен
+        // поиск "кууу" - в результате Куклина Мария Ивановна, Мокрушина Галина Юрьевна
+        // 500 - все три дефолтных участника
         // @ts-ignore
         const {value} = currentTarget
         setQuery(value)

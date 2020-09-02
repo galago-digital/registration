@@ -10,9 +10,12 @@ const RegistrationHookForm = ({items}: { items: Array<UserType> }) => {
     //собираем данные, чтобы задиспатчить их в state
     const {handleSubmit, register, errors, control} = useForm<UserType>()
     //отправляем данные в state
+    // перед отправкой данных нужно привести их к корректному виду
+    // привести дату к нужному формату вместо 275760-05-31
+    // взнос 0006 руб тоже странно выглядит :)
     const dispatch = useDispatch()
     const onSubmit = (values: UserType, e: any) => {
-        dispatch(addUser(values))
+        dispatch(addUser(values))        
         e.target.reset()
     }
     return (
@@ -65,6 +68,12 @@ const RegistrationHookForm = ({items}: { items: Array<UserType> }) => {
                 <div className='inputBlock'>
                     <label>Номер телефона:
                         {/* Не знаю как очистить контроллер при нажатии кнопки. */}
+                        {
+                        // для очистки формы лучше бы создать объект с дефолтными значениями (вроде initialState)
+                        // вроде UserType, тогда и это поле очишалось бы
+                        // все должно быть завязано на данных, 
+                        // а очистка сейчас работает только для DOM элемента, не затрагивая данные
+                        }
                         <Controller
                             as={InputMask}
                             control={control}
@@ -96,6 +105,10 @@ const RegistrationHookForm = ({items}: { items: Array<UserType> }) => {
                 </div>
                 <div className='inputBlock'>
                     <label>Взнос:
+                        {
+                        // в UserType поле с типом number,
+                        // однако нет никаких проверок и спокойно сохраняется строка
+                        }
                         <input type={'text'}
                                name={'payment'}
                                placeholder={'Сумма взноса'}
@@ -107,6 +120,9 @@ const RegistrationHookForm = ({items}: { items: Array<UserType> }) => {
 
             </div>
             <div className='buttonBlock'>
+                {
+                // Кнопка «Отправить заявку» (активна, когда все поля заполнены) - сейчас такой проверки нет
+                }
                 <input type={"submit"} className='sendButton' value={"Отправить"}/>
             </div>
         </form>

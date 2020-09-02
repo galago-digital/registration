@@ -1,10 +1,12 @@
 * {
+  // * применяется ко всем
   padding: 0;
   margin: 0;
-  list-style: none;
-  outline: none;
-  font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+  list-style: none; // list-style - нет списков в верстке
+  outline: none; // в данном случае актуально разве что для input
+  font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif; // нет смысла указывать font-family для всех элементов
   box-sizing: border-box;
+  // в итоге много лишней работы при постороении CSSOM
 }
 
 html {
@@ -27,6 +29,7 @@ h2,
 h3,
 h4,
 h5 {
+  // цвет можно установить один раз для общего родителя, такое перечисление селекторов излишне
   color: $black;
 }
 

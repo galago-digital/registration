@@ -21,12 +21,12 @@ table {
   border-width: 0 1px 1px 1px;
   border-collapse: separate;
   border-spacing: 0;
-  display: table;
+  display: table; // элемент table по умолчнию display: table
   overflow: auto;
   width: 100%;
-  height: 350px;
+  height: 350px; // указание высоты для таблицы приводит к тому что th "растягивается" на всю доступноую высоту если нет результато поиска
   thead{
-    width: 100%;
+    width: 100%; // это лишние, ширина для thead не будет применяться
     th {
       position: -webkit-sticky; /* for Safari */
       position: sticky;
